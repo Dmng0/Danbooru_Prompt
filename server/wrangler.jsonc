@@ -1,0 +1,12 @@
+{
+  "name": "danbooru-prompt-api",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-13",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://dmng0.github.io,http://127.0.0.1:8787,http://localhost:8787",
+    "GEMINI_MODEL": "gemini-3.8-flash"
+  },
+  "ratelimits": [{ "name": "RATE_LIMITER", "namespace_id": "1013", "simple": { "limit": 5, "period": 60 } }],
+  "observability": { "enabled": false }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "danbooru-prompt-helper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/api.test.mjs",
+    "start": "node server/local.mjs",
+    "dev:worker": "cd server && npx wrangler dev",
+    "deploy:api": "cd server && npx wrangler deploy"
+  }
+}

@@ -1,0 +1,747 @@
+[
+  {
+    "tag": "1girl",
+    "category": 0,
+    "desc": "[대상] 키워드: 여자 한명,소녀"
+  },
+  {
+    "tag": "1boy",
+    "category": 0,
+    "desc": "[대상] 키워드: 남자 한명,소년"
+  },
+  {
+    "tag": "2girls",
+    "category": 0,
+    "desc": "[대상] 키워드: 여자 두명"
+  },
+  {
+    "tag": "2boys",
+    "category": 0,
+    "desc": "[대상] 키워드: 남자 두명"
+  },
+  {
+    "tag": "solo",
+    "category": 0,
+    "desc": "[대상] 키워드: 혼자"
+  },
+  {
+    "tag": "multiple_girls",
+    "category": 0,
+    "desc": "[대상] 키워드: 여러 여자"
+  },
+  {
+    "tag": "multiple_boys",
+    "category": 0,
+    "desc": "[대상] 키워드: 여러 남자"
+  },
+  {
+    "tag": "black_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 검은 머리,흑발"
+  },
+  {
+    "tag": "white_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 흰 머리,백발"
+  },
+  {
+    "tag": "blonde_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 금발"
+  },
+  {
+    "tag": "blue_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 파란 머리,청발"
+  },
+  {
+    "tag": "red_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 빨간 머리,적발"
+  },
+  {
+    "tag": "brown_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 갈색 머리"
+  },
+  {
+    "tag": "pink_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 분홍 머리"
+  },
+  {
+    "tag": "purple_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 보라 머리"
+  },
+  {
+    "tag": "green_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 초록 머리"
+  },
+  {
+    "tag": "grey_hair",
+    "category": 0,
+    "desc": "[머리 색상] 키워드: 회색 머리"
+  },
+  {
+    "tag": "long_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 긴 머리,장발"
+  },
+  {
+    "tag": "short_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 짧은 머리,단발"
+  },
+  {
+    "tag": "very_long_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 아주 긴 머리"
+  },
+  {
+    "tag": "ponytail",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 포니테일,묶은 머리"
+  },
+  {
+    "tag": "twintails",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 트윈테일,양갈래"
+  },
+  {
+    "tag": "braid",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 땋은 머리"
+  },
+  {
+    "tag": "hair_bun",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 올림머리"
+  },
+  {
+    "tag": "wavy_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 웨이브 머리"
+  },
+  {
+    "tag": "straight_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 생머리"
+  },
+  {
+    "tag": "messy_hair",
+    "category": 0,
+    "desc": "[머리 스타일] 키워드: 헝클어진 머리"
+  },
+  {
+    "tag": "bangs",
+    "category": 0,
+    "desc": "[앞머리] 키워드: 앞머리"
+  },
+  {
+    "tag": "blunt_bangs",
+    "category": 0,
+    "desc": "[앞머리] 키워드: 일자 앞머리"
+  },
+  {
+    "tag": "parted_bangs",
+    "category": 0,
+    "desc": "[앞머리] 키워드: 갈라진 앞머리"
+  },
+  {
+    "tag": "hair_between_eyes",
+    "category": 0,
+    "desc": "[앞머리] 키워드: 눈 사이 머리"
+  },
+  {
+    "tag": "hair_over_one_eye",
+    "category": 0,
+    "desc": "[앞머리] 키워드: 한쪽 눈을 가린 머리"
+  },
+  {
+    "tag": "blue_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 파란 눈,벽안"
+  },
+  {
+    "tag": "red_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 빨간 눈,적안"
+  },
+  {
+    "tag": "green_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 초록 눈,녹안"
+  },
+  {
+    "tag": "brown_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 갈색 눈"
+  },
+  {
+    "tag": "yellow_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 노란 눈"
+  },
+  {
+    "tag": "purple_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 보라 눈"
+  },
+  {
+    "tag": "grey_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 회색 눈"
+  },
+  {
+    "tag": "heterochromia",
+    "category": 0,
+    "desc": "[눈] 키워드: 오드아이"
+  },
+  {
+    "tag": "closed_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 감은 눈"
+  },
+  {
+    "tag": "half-closed_eyes",
+    "category": 0,
+    "desc": "[눈] 키워드: 반쯤 감은 눈"
+  },
+  {
+    "tag": "tsurime",
+    "category": 0,
+    "desc": "[눈] 키워드: 치켜 올라간 눈"
+  },
+  {
+    "tag": "tareme",
+    "category": 0,
+    "desc": "[눈] 키워드: 처진 눈"
+  },
+  {
+    "tag": "pale_skin",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 창백한 피부"
+  },
+  {
+    "tag": "dark_skin",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 어두운 피부"
+  },
+  {
+    "tag": "tan",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 태닝 피부"
+  },
+  {
+    "tag": "freckles",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 주근깨"
+  },
+  {
+    "tag": "muscular",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 근육질"
+  },
+  {
+    "tag": "tall",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 키 큰"
+  },
+  {
+    "tag": "pointy_ears",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 뾰족한 귀"
+  },
+  {
+    "tag": "cat_ears",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 고양이 귀"
+  },
+  {
+    "tag": "animal_ears",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 동물 귀"
+  },
+  {
+    "tag": "tail",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 꼬리"
+  },
+  {
+    "tag": "wings",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 날개"
+  },
+  {
+    "tag": "horns",
+    "category": 0,
+    "desc": "[피부 신체] 키워드: 뿔"
+  },
+  {
+    "tag": "smile",
+    "category": 0,
+    "desc": "[표정] 키워드: 미소,웃음"
+  },
+  {
+    "tag": "grin",
+    "category": 0,
+    "desc": "[표정] 키워드: 활짝 웃음"
+  },
+  {
+    "tag": "blush",
+    "category": 0,
+    "desc": "[표정] 키워드: 홍조"
+  },
+  {
+    "tag": "crying",
+    "category": 0,
+    "desc": "[표정] 키워드: 울음"
+  },
+  {
+    "tag": "tears",
+    "category": 0,
+    "desc": "[표정] 키워드: 눈물"
+  },
+  {
+    "tag": "angry",
+    "category": 0,
+    "desc": "[표정] 키워드: 화난"
+  },
+  {
+    "tag": "surprised",
+    "category": 0,
+    "desc": "[표정] 키워드: 놀란"
+  },
+  {
+    "tag": "expressionless",
+    "category": 0,
+    "desc": "[표정] 키워드: 무표정"
+  },
+  {
+    "tag": "open_mouth",
+    "category": 0,
+    "desc": "[표정] 키워드: 벌린 입"
+  },
+  {
+    "tag": "closed_mouth",
+    "category": 0,
+    "desc": "[표정] 키워드: 다문 입"
+  },
+  {
+    "tag": "frown",
+    "category": 0,
+    "desc": "[표정] 키워드: 찌푸린 얼굴"
+  },
+  {
+    "tag": ":d",
+    "category": 0,
+    "desc": "[표정] 키워드: 활짝 웃는 입"
+  },
+  {
+    "tag": "dress",
+    "category": 0,
+    "desc": "[의상] 키워드: 드레스,원피스"
+  },
+  {
+    "tag": "white_dress",
+    "category": 0,
+    "desc": "[의상] 키워드: 흰 드레스"
+  },
+  {
+    "tag": "black_dress",
+    "category": 0,
+    "desc": "[의상] 키워드: 검은 드레스"
+  },
+  {
+    "tag": "school_uniform",
+    "category": 0,
+    "desc": "[의상] 키워드: 교복"
+  },
+  {
+    "tag": "sailor_collar",
+    "category": 0,
+    "desc": "[의상] 키워드: 세일러 칼라"
+  },
+  {
+    "tag": "shirt",
+    "category": 0,
+    "desc": "[의상] 키워드: 셔츠"
+  },
+  {
+    "tag": "white_shirt",
+    "category": 0,
+    "desc": "[의상] 키워드: 흰 셔츠"
+  },
+  {
+    "tag": "t-shirt",
+    "category": 0,
+    "desc": "[의상] 키워드: 티셔츠"
+  },
+  {
+    "tag": "skirt",
+    "category": 0,
+    "desc": "[의상] 키워드: 치마"
+  },
+  {
+    "tag": "pleated_skirt",
+    "category": 0,
+    "desc": "[의상] 키워드: 주름치마"
+  },
+  {
+    "tag": "pants",
+    "category": 0,
+    "desc": "[의상] 키워드: 바지"
+  },
+  {
+    "tag": "shorts",
+    "category": 0,
+    "desc": "[의상] 키워드: 반바지"
+  },
+  {
+    "tag": "coat",
+    "category": 0,
+    "desc": "[의상] 키워드: 코트"
+  },
+  {
+    "tag": "jacket",
+    "category": 0,
+    "desc": "[의상] 키워드: 재킷"
+  },
+  {
+    "tag": "hoodie",
+    "category": 0,
+    "desc": "[의상] 키워드: 후드티"
+  },
+  {
+    "tag": "kimono",
+    "category": 0,
+    "desc": "[의상] 키워드: 기모노"
+  },
+  {
+    "tag": "armor",
+    "category": 0,
+    "desc": "[의상] 키워드: 갑옷"
+  },
+  {
+    "tag": "gloves",
+    "category": 0,
+    "desc": "[의상] 키워드: 장갑"
+  },
+  {
+    "tag": "hat",
+    "category": 0,
+    "desc": "[의상] 키워드: 모자"
+  },
+  {
+    "tag": "glasses",
+    "category": 0,
+    "desc": "[의상] 키워드: 안경"
+  },
+  {
+    "tag": "boots",
+    "category": 0,
+    "desc": "[의상] 키워드: 부츠"
+  },
+  {
+    "tag": "sneakers",
+    "category": 0,
+    "desc": "[의상] 키워드: 운동화"
+  },
+  {
+    "tag": "necktie",
+    "category": 0,
+    "desc": "[의상] 키워드: 넥타이"
+  },
+  {
+    "tag": "bow",
+    "category": 0,
+    "desc": "[의상] 키워드: 리본"
+  },
+  {
+    "tag": "hair_ornament",
+    "category": 0,
+    "desc": "[의상] 키워드: 머리 장식"
+  },
+  {
+    "tag": "earrings",
+    "category": 0,
+    "desc": "[의상] 키워드: 귀걸이"
+  },
+  {
+    "tag": "cape",
+    "category": 0,
+    "desc": "[의상] 키워드: 망토"
+  },
+  {
+    "tag": "standing",
+    "category": 0,
+    "desc": "[자세] 키워드: 서있는"
+  },
+  {
+    "tag": "sitting",
+    "category": 0,
+    "desc": "[자세] 키워드: 앉아있는"
+  },
+  {
+    "tag": "lying",
+    "category": 0,
+    "desc": "[자세] 키워드: 누워있는"
+  },
+  {
+    "tag": "walking",
+    "category": 0,
+    "desc": "[자세] 키워드: 걷는"
+  },
+  {
+    "tag": "running",
+    "category": 0,
+    "desc": "[자세] 키워드: 달리는"
+  },
+  {
+    "tag": "jumping",
+    "category": 0,
+    "desc": "[자세] 키워드: 점프"
+  },
+  {
+    "tag": "looking_at_viewer",
+    "category": 0,
+    "desc": "[자세] 키워드: 보는 사람을 바라봄"
+  },
+  {
+    "tag": "looking_away",
+    "category": 0,
+    "desc": "[자세] 키워드: 시선 돌림"
+  },
+  {
+    "tag": "looking_back",
+    "category": 0,
+    "desc": "[자세] 키워드: 뒤돌아봄"
+  },
+  {
+    "tag": "arms_up",
+    "category": 0,
+    "desc": "[자세] 키워드: 팔 올림"
+  },
+  {
+    "tag": "crossed_arms",
+    "category": 0,
+    "desc": "[자세] 키워드: 팔짱"
+  },
+  {
+    "tag": "hand_on_hip",
+    "category": 0,
+    "desc": "[자세] 키워드: 허리에 손"
+  },
+  {
+    "tag": "holding_sword",
+    "category": 0,
+    "desc": "[자세] 키워드: 검을 들고"
+  },
+  {
+    "tag": "holding",
+    "category": 0,
+    "desc": "[자세] 키워드: 들고 있는"
+  },
+  {
+    "tag": "peace_sign",
+    "category": 0,
+    "desc": "[자세] 키워드: 브이 포즈"
+  },
+  {
+    "tag": "portrait",
+    "category": 0,
+    "desc": "[구도] 키워드: 초상화"
+  },
+  {
+    "tag": "close-up",
+    "category": 0,
+    "desc": "[구도] 키워드: 클로즈업"
+  },
+  {
+    "tag": "upper_body",
+    "category": 0,
+    "desc": "[구도] 키워드: 상반신"
+  },
+  {
+    "tag": "full_body",
+    "category": 0,
+    "desc": "[구도] 키워드: 전신"
+  },
+  {
+    "tag": "from_above",
+    "category": 0,
+    "desc": "[구도] 키워드: 위에서 본"
+  },
+  {
+    "tag": "from_below",
+    "category": 0,
+    "desc": "[구도] 키워드: 아래에서 본"
+  },
+  {
+    "tag": "from_side",
+    "category": 0,
+    "desc": "[구도] 키워드: 옆에서 본"
+  },
+  {
+    "tag": "from_behind",
+    "category": 0,
+    "desc": "[구도] 키워드: 뒤에서 본"
+  },
+  {
+    "tag": "wide_shot",
+    "category": 0,
+    "desc": "[구도] 키워드: 와이드 샷"
+  },
+  {
+    "tag": "dutch_angle",
+    "category": 0,
+    "desc": "[구도] 키워드: 기울어진 구도"
+  },
+  {
+    "tag": "outdoors",
+    "category": 0,
+    "desc": "[배경] 키워드: 야외"
+  },
+  {
+    "tag": "indoors",
+    "category": 0,
+    "desc": "[배경] 키워드: 실내"
+  },
+  {
+    "tag": "forest",
+    "category": 0,
+    "desc": "[배경] 키워드: 숲"
+  },
+  {
+    "tag": "tree",
+    "category": 0,
+    "desc": "[배경] 키워드: 나무"
+  },
+  {
+    "tag": "flower",
+    "category": 0,
+    "desc": "[배경] 키워드: 꽃"
+  },
+  {
+    "tag": "cherry_blossoms",
+    "category": 0,
+    "desc": "[배경] 키워드: 벚꽃"
+  },
+  {
+    "tag": "beach",
+    "category": 0,
+    "desc": "[배경] 키워드: 해변"
+  },
+  {
+    "tag": "ocean",
+    "category": 0,
+    "desc": "[배경] 키워드: 바다"
+  },
+  {
+    "tag": "sky",
+    "category": 0,
+    "desc": "[배경] 키워드: 하늘"
+  },
+  {
+    "tag": "cloud",
+    "category": 0,
+    "desc": "[배경] 키워드: 구름"
+  },
+  {
+    "tag": "city",
+    "category": 0,
+    "desc": "[배경] 키워드: 도시"
+  },
+  {
+    "tag": "street",
+    "category": 0,
+    "desc": "[배경] 키워드: 거리"
+  },
+  {
+    "tag": "classroom",
+    "category": 0,
+    "desc": "[배경] 키워드: 교실"
+  },
+  {
+    "tag": "bedroom",
+    "category": 0,
+    "desc": "[배경] 키워드: 침실"
+  },
+  {
+    "tag": "snow",
+    "category": 0,
+    "desc": "[배경] 키워드: 눈"
+  },
+  {
+    "tag": "rain",
+    "category": 0,
+    "desc": "[배경] 키워드: 비"
+  },
+  {
+    "tag": "night",
+    "category": 0,
+    "desc": "[배경] 키워드: 밤"
+  },
+  {
+    "tag": "day",
+    "category": 0,
+    "desc": "[배경] 키워드: 낮"
+  },
+  {
+    "tag": "sunset",
+    "category": 0,
+    "desc": "[배경] 키워드: 노을"
+  },
+  {
+    "tag": "sunlight",
+    "category": 0,
+    "desc": "[배경] 키워드: 햇빛"
+  },
+  {
+    "tag": "moon",
+    "category": 0,
+    "desc": "[배경] 키워드: 달"
+  },
+  {
+    "tag": "star_(sky)",
+    "category": 0,
+    "desc": "[배경] 키워드: 별"
+  },
+  {
+    "tag": "simple_background",
+    "category": 0,
+    "desc": "[배경] 키워드: 단순 배경"
+  },
+  {
+    "tag": "white_background",
+    "category": 0,
+    "desc": "[배경] 키워드: 흰 배경"
+  },
+  {
+    "tag": "blurry_background",
+    "category": 0,
+    "desc": "[배경] 키워드: 흐릿한 배경"
+  },
+  {
+    "tag": "depth_of_field",
+    "category": 0,
+    "desc": "[배경] 키워드: 피사계 심도"
+  },
+  {
+    "tag": "backlighting",
+    "category": 0,
+    "desc": "[배경] 키워드: 역광"
+  },
+  {
+    "tag": "rim_light",
+    "category": 0,
+    "desc": "[배경] 키워드: 윤곽 조명"
+  },
+  {
+    "tag": "shadow",
+    "category": 0,
+    "desc": "[배경] 키워드: 그림자"
+  }
+]

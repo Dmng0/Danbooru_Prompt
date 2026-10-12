@@ -1,0 +1,3 @@
+GEMINI_API_KEY=replace-with-your-key-on-your-computer
+# Optional personal-site password, not a Gemini key:
+# ACCESS_TOKEN=choose-a-long-random-password
