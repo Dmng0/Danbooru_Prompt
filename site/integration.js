@@ -1,15 +1,10 @@
 /* Server-backed generation; all formatting and output editing stays in the browser. */
-const apiInput = document.getElementById('api_base');
-const connectionStatus = document.getElementById('connection_status');
 const outputDirty = { sd: false, nai: false, natural: false };
 let outputSource = null;
-try { apiInput.value = localStorage.getItem('prompt-helper-api') || window.PROMPT_HELPER_CONFIG?.apiBase || ''; }
-catch { apiInput.value = window.PROMPT_HELPER_CONFIG?.apiBase || ''; }
-if (apiInput.value) connectionStatus.textContent = '주소 설정됨 · 연결 확인 전';
 
 function serverBase() {
-  const raw = apiInput.value.trim();
-  if (!raw) throw new Error('위의 AI 서버 주소를 먼저 설정해 주세요.');
+  const raw = (window.PROMPT_HELPER_CONFIG?.apiBase || '').trim();
+  if (!raw) throw new Error('서비스 연결이 설정되지 않았습니다. 관리자에게 문의해 주세요.');
   let u;
   try { u = new URL(raw); } catch { throw new Error('서버 주소를 https://부터 입력해 주세요.'); }
   const local = ['localhost', '127.0.0.1', '[::1]'].includes(u.hostname);
@@ -17,16 +12,9 @@ function serverBase() {
   if (u.username || u.password || u.search || u.hash) throw new Error('서버 주소에는 계정·쿼리·해시를 넣지 마세요.');
   return u.href.replace(/\/$/, '');
 }
-function apiHeaders() {
-  const h = { 'Content-Type': 'application/json' };
-  const token = document.getElementById('access_token').value.trim();
-  if (token) h.Authorization = `Bearer ${token}`;
-  return h;
-}
+function apiHeaders() { return { 'Content-Type': 'application/json' }; }
 async function apiFetch(path, init = {}) {
   const base = serverBase();
-  if (!document.getElementById('external_consent').checked) throw new Error('현재 입력의 외부 전송에 동의한 후 생성·검색을 눌러 주세요.');
-  document.getElementById('external_consent').checked = false;
   try {
     return await fetch(base + path, { ...init, headers: { ...init.headers, ...apiHeaders() }, signal: AbortSignal.timeout(90000) });
   } catch (e) {
@@ -34,19 +22,6 @@ async function apiFetch(path, init = {}) {
     throw new Error('AI 서버에 연결하지 못했습니다. 주소·서버 실행 상태·허용 사이트 설정(CORS)을 확인해 주세요.');
   }
 }
-document.getElementById('save_connection').onclick = () => {
-  try { const base = serverBase(); localStorage.setItem('prompt-helper-api', base); connectionStatus.textContent = '서버 주소를 이 브라우저에 저장했습니다. 비밀번호는 저장하지 않습니다.'; }
-  catch (e) { connectionStatus.textContent = e.message; }
-};
-document.getElementById('check_connection').onclick = async () => {
-  connectionStatus.textContent = '연결 확인 중…';
-  try {
-    const response = await fetch(serverBase() + '/api/health', { headers: apiHeaders(), signal: AbortSignal.timeout(10000) });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.detail || '연결 실패');
-    connectionStatus.textContent = `${data.configured ? '서버 연결됨 · 키 설정됨' : '서버 연결됨 · Gemini 키 설정 필요'} · ${data.model} · 태그 ${data.catalog_size}개`;
-  } catch (e) { connectionStatus.textContent = e.message === 'Failed to fetch' ? '연결 실패: 서버 주소와 허용 사이트(CORS) 설정을 확인해 주세요.' : e.message; }
-};
 // Load the catalog before displaying verification labels, also enabling autocomplete immediately.
 acEnsureLoaded().then(() => { if (currentResultData) syncOutputs(); });
 
@@ -83,8 +58,8 @@ const originalFinalInput = onFinalEditInput;
 onFinalEditInput = function () { originalFinalInput(); syncOutputs(); };
 const originalGenerate = generateTags;
 generateTags = async function () {
-  // Configuration/consent failures must not erase an existing result.
-  try { serverBase(); if (!document.getElementById('external_consent').checked) throw new Error('외부 전송 동의를 확인해 주세요.'); }
+  // Configuration failures must not erase an existing result.
+  try { serverBase(); }
   catch (e) { showError(e.message); return; }
   outputSource = null;
   await originalGenerate();

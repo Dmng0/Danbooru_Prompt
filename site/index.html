@@ -973,16 +973,6 @@
       </div>
 
       
-<section class="panel connection-panel" aria-label="서버 연결 설정">
-  <details open><summary>AI 서버 연결</summary>
-    <p>생성·AI 검색 시 입력 내용이 연결한 서버와 Google Gemini로 전송됩니다. 태그 편집·가중치 변경·복사는 브라우저에서 처리합니다.</p>
-    <div class="connection-grid"><div><label for="api_base">API 서버 주소</label><input id="api_base" type="url" placeholder="https://prompt-helper-api.example.workers.dev"></div>
-    <div><label for="access_token">사이트 이용 비밀번호 (서버에서 설정한 경우)</label><input id="access_token" type="password" autocomplete="off" placeholder="Gemini API 키를 입력하지 마세요"></div></div>
-    <div class="connection-actions"><button type="button" id="save_connection">주소 저장</button><button type="button" id="check_connection">연결 확인</button><span id="connection_status" role="status">서버 주소를 설정해 주세요.</span></div>
-    <label class="consent-row"><input type="checkbox" id="external_consent">이번 생성·검색을 위해 현재 입력을 외부 AI 서버와 Google에 전송하는 데 동의합니다. 요청 후 다시 확인합니다.</label>
-    <p class="data-note">기본 태그 사전은 소규모 시작용 데이터입니다. 전체 Danbooru DB가 아니며, 사전에 없는 AI 제안은 미확인으로 표시합니다. Gemini 무료 등급의 입력·응답은 Google 제품 개선에 사용될 수 있습니다.</p>
-  </details>
-</section>
 <div class="main-grid">
         <!-- 왼쪽 패널: 입력부 -->
         <div class="panel">
@@ -1183,6 +1173,7 @@
             </div>
           </details>
 
+          <p class="data-note">생성·AI 검색 시 입력 내용이 서버와 Google Gemini로 전송됩니다. 무료 등급의 입력·응답은 Google 제품 개선에 사용될 수 있습니다. 별도 동의 체크 없이 바로 요청합니다.</p>
           <button class="btn-generate" id="generate_btn" onclick="generateTags()">
             <span>태그 생성하기</span>
             <div class="spinner" id="spinner"></div>
