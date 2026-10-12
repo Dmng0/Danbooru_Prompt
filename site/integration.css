@@ -14,3 +14,12 @@ input[type=url], input[type=password] { width: 100%; padding: 9px; border: 1px s
 #tag_validation { overflow-wrap: anywhere; }
 .tag.unverified { border-style: dashed; }
 @media(max-width:600px) { .connection-grid { grid-template-columns:1fr; } .wrap { padding: 16px 10px; } .main-grid > *, .result-box, .panel { min-width:0; } .tag { overflow-wrap:anywhere; max-width:100%; } }
+
+.image-dropzone { width:100%; padding:32px 18px; border:2px dashed var(--border); border-radius:12px; background:var(--panel); color:var(--text); cursor:pointer; line-height:1.6; }
+.image-dropzone.dragging { border-color:var(--primary); background:rgba(120,160,255,.12); }
+#image_preview { display:block; max-width:100%; max-height:320px; margin:12px auto; object-fit:contain; border-radius:8px; }
+#image_preview[hidden], #image_remove[hidden] { display:none; }
+#image_notes { width:100%; min-height:80px; margin:8px 0 16px; }
+#image_status { font-size:12px; color:var(--dim); overflow-wrap:anywhere; }
+#image_remove { margin-bottom:12px; }
+#mode_toggle { flex-wrap:wrap; }

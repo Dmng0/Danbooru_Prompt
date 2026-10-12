@@ -59,7 +59,7 @@ onFinalEditInput = function () { originalFinalInput(); syncOutputs(); };
 const originalGenerate = generateTags;
 generateTags = async function () {
   // Configuration failures must not erase an existing result.
-  try { serverBase(); }
+  try { serverBase(); if (currentMode === 'image') imagePayload(); }
   catch (e) { showError(e.message); return; }
   outputSource = null;
   await originalGenerate();
@@ -93,17 +93,12 @@ nlArea.addEventListener('input', () => {
   }
 });
 // Search tags append in click order and participate in normal weight/delete editing.
-const appendButton = document.createElement('button');
-appendButton.type = 'button'; appendButton.textContent = '검색 결과: 클릭하여 태그 추가 모드';
-document.getElementById('res_direct_db').before(appendButton);
-let appendSearch = false;
-appendButton.onclick = () => { appendSearch = !appendSearch; appendButton.textContent = appendSearch ? '태그 추가 모드 켜짐 · 클릭하여 끄기' : '검색 결과: 클릭하여 태그 추가 모드'; renderDirectDBResults(); };
 const originalRenderDirect = renderDirectDBResults;
 renderDirectDBResults = function () {
   originalRenderDirect();
-  if (!appendSearch) return;
   [...document.getElementById('res_direct_db').children].forEach((el, i) => {
     const item = lastDirectDBResults?.[i]; if (!item) return;
+    el.setAttribute('data-tooltip', item.tag + '\n\n클릭하여 프롬프트 끝에 추가');
     el.onclick = () => {
       currentResultData ||= { final_prompt: '', english_prompt: '' };
       const tokens = currentResultData.final_prompt.split(',').map(x => x.trim()).filter(Boolean);

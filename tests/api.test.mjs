@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { handleRequest, validateInput, normalizeResult, callGemini } from '../server/worker.mjs';
 const env = { GEMINI_API_KEY: 'test-key-not-real', GEMINI_MODEL: 'test-model', ALLOWED_ORIGINS: 'https://dmng0.github.io', ACCESS_TOKEN: 'test-password' };
 const p = { prompt: '검은 머리 소녀', threshold: 0.6, nl_temperature: 0.4 };
+const pngData = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aD1sAAAAASUVORK5CYII=';
 const raw = { tags: [{ tag:'1girl', score:1, category:0 }, { tag:'black_hair', score:0.9, category:0 }, { tag:'black_hair', score:0.8, category:0 }, { tag:'made_up_tag', score:0.8, category:0 }, { tag:'smile', score:0.2, category:0 }], english_prompt: 'A girl with black hair.', ko_units: ['소녀','검은 머리'], keywords: ['girl','black hair'], characters: [], background_tags: [] };
 const mockFetch = async (url, options) => {
   assert.match(url, /generativelanguage.googleapis.com\/v1beta\/models\/test-model:generateContent$/);
@@ -55,4 +56,28 @@ test('blocked, incomplete and invalid model responses fail cleanly', async () =>
   for (const response of [{promptFeedback:{blockReason:'SAFETY'}}, {candidates:[{finishReason:'MAX_TOKENS'}]}, {candidates:[{finishReason:'STOP',content:{parts:[{text:'not json'}]}}]}]) {
     await assert.rejects(()=>callGemini(validateInput('/api/generate',p),'/api/generate',env,async()=>Response.json(response)));
   }
+});
+
+test('image generation sends actual image bytes separately from scene text', async () => {
+  let captured;
+  const input = { image: { mime_type: 'image/png', data: pngData }, prompt: '구도를 설명' };
+  const response = await handleRequest(request('/api/generate_image', input), env, async (url, options) => {
+    captured = JSON.parse(options.body);
+    return mockFetch(url, options);
+  });
+  assert.equal(response.status, 200);
+  const parts = captured.contents[0].parts;
+  assert.deepEqual(parts[0].inlineData, { mimeType: 'image/png', data: pngData });
+  assert.equal(JSON.parse(parts[1].text).prompt, '구도를 설명');
+  assert.ok(!parts[1].text.includes(pngData));
+  assert.ok(JSON.parse(await response.text()).data.english_prompt);
+});
+
+test('invalid image types, mismatched signatures and oversized uploads never reach Gemini', async () => {
+  const never = () => { throw new Error('must not call'); };
+  for (const image of [null, { mime_type:'image/gif',data:pngData }, { mime_type:'image/jpeg',data:pngData }, { mime_type:'image/png',data:'not base64' }]) {
+    assert.equal((await handleRequest(request('/api/generate_image',{image}),env,never)).status,400);
+  }
+  assert.equal((await handleRequest(request('/api/generate_image',{image:{mime_type:'image/png',data:'A'.repeat(3000004)}}),env,never)).status,413);
+  assert.equal((await handleRequest(request('/api/generate_image',{padding:'x'.repeat(3100001)}),env,never)).status,413);
 });

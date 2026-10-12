@@ -985,9 +985,20 @@
             <div id="mode_toggle" style="display:flex; gap:8px; margin-bottom:16px;">
               <button type="button" id="mode_basic_btn" class="mode-btn active" onclick="setMode('basic')">기본</button>
               <button type="button" id="mode_split_btn" class="mode-btn" onclick="setMode('split')">고급 (인물 분할)</button>
+              <button type="button" id="mode_image_btn" class="mode-btn" onclick="setMode('image')">이미지</button>
             </div>
 
             <!-- 2. 입력칸 (최상단) -->
+            <div id="image_input" style="display:none">
+              <button type="button" id="image_dropzone" class="image-dropzone">JPG · JPEG · PNG 이미지를 여기에 놓거나 클릭하여 선택하세요</button>
+              <input id="image_file" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden>
+              <p class="data-note">이미지 1장, 최대 10MB. 선택 후 ‘태그 생성하기’를 누르면 이미지와 추가 설명이 Google Gemini로 전송됩니다. 구도·대상·배치·색상·조명·배경을 분석합니다.</p>
+              <p id="image_status" role="status">선택한 이미지가 없습니다.</p>
+              <img id="image_preview" alt="분석할 이미지 미리보기" hidden>
+              <button id="image_remove" type="button" hidden>이미지 제거</button>
+              <label for="image_notes">추가 요청 (선택)</label>
+              <textarea id="image_notes" maxlength="2000" placeholder="예: 인물보다 구도와 배경을 중심으로 설명해줘"></textarea>
+            </div>
             <div id="basic_input" style="display: block;">
               <label for="prompt">이미지 묘사 (한국어)</label>
               <textarea id="prompt" placeholder="원하는 이미지를 자세히 묘사해주세요.
@@ -1073,7 +1084,7 @@
           </div>
 
           <!-- 6. 접이식 설정: 고정 태그 + 온도 미세조정 (입력 아래) -->
-          <details class="advanced-settings" open="">
+          <details class="advanced-settings">
             <summary>고정 태그 (Danbooru 태그 앞뒤 고정)</summary>
             <div class="settings-content">
               <p style="font-size:12px; color:var(--dim); margin:0 0 12px; line-height:1.6;">
@@ -1125,7 +1136,7 @@
             </div>
           </details>
 
-          <details class="advanced-settings" open="">
+          <details class="advanced-settings">
             <summary>온도 미세조정 (고급)</summary>
             <div class="settings-content">
               <div class="form-group">
@@ -1184,7 +1195,7 @@
           <hr style="border: 0; border-top: 1px solid var(--border); margin: 32px 0 24px 0;">
           
           <div class="form-group">
-            <h3 style="margin: 0 0 12px 0; font-size: 15px; color: var(--primary);">AI 관련 태그 검색</h3>
+            <h3 style="margin: 0 0 12px 0; font-size: 15px; color: var(--primary);">단부루 태그 검색</h3>
             <p style="font-size: 11px; color: var(--dim); margin-top: 0; margin-bottom: 12px; line-height: 1.4;">
               Gemini가 입력 단어의 관련 태그를 제안하고 서버의 태그 사전과 대조합니다. 점수는 AI 추정 관련도이며 벡터 유사도가 아닙니다. 이 검색도 외부 AI를 호출합니다.
             </p>
@@ -1205,12 +1216,7 @@
               <button type="button" class="cat-toggle" data-cat="5" onclick="toggleCat(this)">메타</button>
             </div>
 
-            <label class="cb-label" style="margin-bottom:6px;">태그 클릭 동작</label>
-            <div id="direct_click_mode" style="display:flex; gap:8px; margin-bottom:16px;">
-              <button type="button" class="mode-btn active" data-clickmode="copy" onclick="setDirectClickMode('copy')">복사</button>
-              <button type="button" class="mode-btn" data-clickmode="danbooru" onclick="setDirectClickMode('danbooru')">Danbooru 열기</button>
-            </div>
-            
+            <p class="data-note">검색 결과 태그를 클릭하면 프롬프트 끝에 추가됩니다.</p>
             <button class="btn-generate" id="direct_search_btn" onclick="searchDirectDB()" style="background: #2a2e38; border-color: var(--border); color: var(--text); margin-top: 0;">
               <span>조회하기</span>
               <div class="spinner" id="direct_spinner" style="border-top-color: var(--text);"></div>
@@ -1406,10 +1412,12 @@
       function setMode(mode) {
         currentMode = mode;
         const isSplit = mode === "split";
-        document.getElementById("basic_input").style.display = isSplit ? "none" : "block";
+        document.getElementById("basic_input").style.display = mode === "basic" ? "block" : "none";
         document.getElementById("split_input").style.display = isSplit ? "block" : "none";
-        document.getElementById("mode_basic_btn").classList.toggle("active", !isSplit);
+        document.getElementById("mode_basic_btn").classList.toggle("active", mode === "basic");
         document.getElementById("mode_split_btn").classList.toggle("active", isSplit);
+        document.getElementById("image_input").style.display = mode === "image" ? "block" : "none";
+        document.getElementById("mode_image_btn").classList.toggle("active", mode === "image");
         // 검색 범위는 기본 모드 전용(고급 모드는 백엔드가 4-step 본선/cat3·4 검색 사용).
         const srs = document.getElementById("search_range_section");
         if (srs) srs.style.display = isSplit ? "none" : "block";
@@ -1822,7 +1830,10 @@
         if (_grid) _grid.style.display = "none";
 
         let payload, apiUrl;
-        if (currentMode === "split") {
+        if (currentMode === "image") {
+          apiUrl = "/api/generate_image";
+          payload = imagePayload();
+        } else if (currentMode === "split") {
           apiUrl = "/api/generate_split";
           const characters = [];
           document.querySelectorAll("#char_blocks .char-block").forEach((blk) => {
@@ -2852,6 +2863,7 @@
       </div>
     </div>
 
-<script src="./integration.js"></script>
+<script src="./integration.js?v=1.1.0"></script>
+<script src="./features.js?v=1.1.0"></script>
 </body></html>
 

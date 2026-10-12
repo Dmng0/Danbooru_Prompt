@@ -19,7 +19,7 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, origin);
     if (url.pathname.startsWith('/api/')) {
       const parts = []; let size = 0;
-      for await (const chunk of req) { size += chunk.length; if (size > 40000) { res.writeHead(413).end(); return; } parts.push(chunk); }
+      for await (const chunk of req) { size += chunk.length; if (size > (url.pathname === '/api/generate_image' ? 3100000 : 40000)) { res.writeHead(413).end(); return; } parts.push(chunk); }
       const headers = new Headers(req.headers);
       headers.set('cf-connecting-ip', req.socket.remoteAddress || 'local');
       const request = new Request(url, { method: req.method, headers, ...(['GET','HEAD'].includes(req.method) ? {} : { body: Buffer.concat(parts) }) });
