@@ -18,6 +18,8 @@
 
 ## 1. API 서버 배포
 
+브라우저 대시보드에서 배포할 경우 `server/dashboard-worker.js`를 Worker 코드 편집기에 붙여 넣을 수 있습니다. 이 파일은 `node server/build-dashboard.mjs`로 원본 모듈과 사전을 묶어 생성합니다. 대시보드에서는 Settings → Variables and Secrets에 `GEMINI_API_KEY`를 Secret으로, `ALLOWED_ORIGINS`를 `https://dmng0.github.io`로, `GEMINI_MODEL`을 사용할 모델 이름으로 설정합니다. 이 단일 파일의 빈도 제한은 인스턴스 메모리에 보관하는 보조 제한으로, 아래 Wrangler 배포의 Cloudflare 바인딩보다 제한적입니다. 두 방식 모두 전 세계 공통의 일일 예산 상한은 아닙니다.
+
 Node.js 22 이상과 Cloudflare 계정이 필요합니다. 저장소를 내려받고 PowerShell에서 저장소 폴더로 이동합니다.
 
 ```powershell
